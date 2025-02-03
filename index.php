@@ -25,8 +25,7 @@
     <form method="POST" action="php/login_auth.php">
         <input type="text" name="username" class="input-field" placeholder="Username" required autocomplete="off"><br>
         <input type="password" name="password" class="input-field" placeholder="Password" required autocomplete="off"><br>
-        <input type="text" name="course" class="input-field" placeholder="Course" required autocomplete="off"><br>
-        <input type="text" name="department" class="input-field" placeholder="Department" required autocomplete="off"><br>
+
 
 
 

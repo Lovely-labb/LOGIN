@@ -5,11 +5,10 @@ include('../database/db.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $course = $_POST['course'];
-    $department = $_POST['department'];
 
-    $stmt = $conn->prepare(query: "SELECT * FROM users WHERE BINARY username = :username AND password = :password AND course = :course AND department = :department");
-    $stmt->execute(params: ['username' => $username, 'password' => $password, 'course' => $course, 'department' => $department]);
+
+    $stmt = $conn->prepare(query: "SELECT * FROM users WHERE BINARY username = :username AND password = :password");
+    $stmt->execute(params: ['username' => $username, 'password' => $password]);
     $user = $stmt->fetch();
 
     if ($user) {
