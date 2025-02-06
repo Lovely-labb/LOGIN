@@ -15,6 +15,14 @@ if (isset($_SESSION['user'])) {
     exit;
 }
 
+// Fetch products from the database using PDO
+$query = "SELECT * FROM product_tbl";
+$stmt = $conn->query($query);
+ 
+// Fetch all products at once into an array
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -87,15 +95,16 @@ if (isset($_SESSION['user'])) {
         </tr>
       </thead>
       <tbody>
-       
+      
+      <?php foreach($products as $row): ?>
           <tr>
-            <td>sample name</td>
-            <td>smaple type</td>
-            <td>sample price</td>
-            <td>sample img</td>
-
+            <td><?php echo ($row ['pt_name'])?></td>
+            <td><?php echo ($row ['pt_type'])?></td>
+            <td><?php echo ($row ['pt_price'])?></td>
+            <td><img style= "height:30px" src="product/product_img/<?php echo ($row ['pt_img'])?>" alt=""></td>
           </tr>
-     
+          <?php endforeach?>
+
       </tbody>
     </table>
   </div>
