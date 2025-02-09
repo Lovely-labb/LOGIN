@@ -14,7 +14,6 @@ if ($_SERVER ['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
         $imgTmp    = $_FILES['image']['tmp_name'];
         $uploadDir = 'product_img/';
  
-       die($imgName);
         // Create the product_img directory if it doesn't exist
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0755, true);

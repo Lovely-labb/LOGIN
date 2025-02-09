@@ -27,8 +27,6 @@
         <input type="password" name="password" class="input-field" placeholder="Password" required autocomplete="off"><br>
 
 
-
-
         <button type="submit" class="btn">Login</button>
     </form>
 

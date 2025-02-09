@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header(header: 'Location: ../admin_page.php');
 
         }else{
-            header(header: 'Location: ../welcome.php');
+            header(header: 'Location: ../products_page.php');
 
         }exit;
 
