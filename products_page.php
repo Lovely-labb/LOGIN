@@ -14,7 +14,7 @@ if (isset($_SESSION['user'])) {
     exit;
 }
 
-$query = "SELECT * FROM product_tbl";
+$query = "SELECT * FROM products_tbl";
 $stmt = $conn->query($query);
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -107,7 +107,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <button type="button" class="btn btn-warning edit-btn" 
               data-bs-toggle="modal" 
               data-bs-target="#editProductModal"
-              data-id="<?php echo $row['pt_id']; ?>"
+              data-id="<?php echo $row['product_id']; ?>"
               data-name="<?php echo $row['pt_name']; ?>"
               data-type="<?php echo $row['pt_type']; ?>"
               data-price="<?php echo $row['pt_price']; ?>">
@@ -115,7 +115,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </button>
 
             <form action="product/delete_product.php" method="POST">
-              <input type="hidden" name="delete_id" value="<?php echo $row['pt_id']; ?>">
+              <input type="hidden" name="delete_id" value="<?php echo $row['product_id']; ?>">
               <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?');">DELETE</button>
             </form>
           </div>

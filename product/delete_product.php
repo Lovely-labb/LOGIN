@@ -10,7 +10,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     $id = $_POST['delete_id'];
 
-    $query = "SELECT pt_img FROM product_tbl WHERE pt_id=?";
+    $query = "SELECT pt_img FROM products_tbl WHERE product_id=?";
     $stmt = $conn->prepare($query);
     $stmt->execute([$id]);
     $product = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
             unlink($imagePath); 
         }
 
-        $query = "DELETE FROM product_tbl WHERE pt_id=?";
+        $query = "DELETE FROM products_tbl WHERE product_id=?";
         $stmt = $conn->prepare($query);
         $stmt->execute([$id]);
 
